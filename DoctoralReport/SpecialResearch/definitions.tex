@@ -1,0 +1,238 @@
+\documentclass[11pt,a4j]{jsarticle}
+\usepackage{url}
+\usepackage{listings,jlisting}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage[amsmath,thmmarks]{ntheorem}
+\usepackage[dvipdfmx]{graphicx}
+\theorembodyfont{\normalfont}
+\theoremstyle{plain}
+\theoremseparator{.}
+\theoremprework{\bigskip\hrule\bigskip}
+\theorempostwork{\hrule\bigskip}
+\newtheorem{theo}{定理}[section]
+\newtheorem{defi}[theo]{定義}
+\newtheorem{lemm}[theo]{補題}
+\renewcommand{\thetheo}{\arabic{theo}} 
+\def\vector#1{\mbox{\boldmath $#1$}}
+\def\vu{\mbox{\boldmath $u$}}
+\def\vv{\mbox{\boldmath $v$}}
+
+\def\node#1#2{\mbox{\boldmath $#1_{#2}$}}
+
+\def\O#1{\overline#1}
+\begin{document}
+
+
+
+%諸定義
+\section{諸定義}
+本章では、本レポートで使用する用語の定義を行う。
+
+%Graph
+\begin{defi}
+グラフ(graph)は頂点(vertex, node)を要素と持つ空でない集合と,二つの頂点を要素とする辺(edge, link)を要素と持つ集合からなる.頂点集合が$V$,辺集合が$E$であるグラフ$G$を$G$($V$,$E$)と書く.
+\end{defi}
+
+%directed / undirected  graph
+\begin{defi}
+各辺を定義する頂点の対が順序対であるとき,そのグラフを有向グラフ(directed graph),非順序対のとき,無向グラフ(undirected graph)と呼ぶ.
+\end{defi}
+
+%adjacent
+\begin{defi}
+二つの頂点{\vu}, {\vv}と辺$e$に対して,{\vu}, {\vv}$\in$, $e$のとき,$e$は{\vu}, {\vv}に接続しているという.また,{\vu} ,{\vv}は隣接している(adjacent),$e$の端点(end point)は{\vu} ,{\vv}である,という.以後,頂点{\vv}の隣接頂点集合を$N$({\vv})で表す.
+\end{defi}
+
+%isolated 
+\begin{defi}
+無向グラフの頂点{\vv}において,{\vv}に接続している辺の数を{\vv}の次数(degree)という.次数が0である頂点を孤立頂点(isolated vertex)という.
+\end{defi}
+
+%degree
+\begin{defi}
+無向グラフ$G$において,任意の頂点の次数のうち,最大のものを$G$の最大次数(maximum degree),最小のものを$G$の最小次数(minimum degree)と言う.
+\end{defi}
+
+%in,out degree
+\begin{defi}
+有向グラフの頂点{\vv}において, {\vv}から出る辺の集合を{\it out}({\vv}),{\vv}へ入る辺の集合を{\it in}({\vv})とする. $|{\it out}({\vv})|$, $|{\it in}({\vv})|$をそれぞれ{\vv}の出次数(out degree), 入次数(in degree)という. 出次数, 入次数が共に0である頂点を孤立頂点という.
+\end{defi}
+
+%regular graph
+\begin{defi}
+全ての頂点の次数が等しいグラフを正則グラフ(regular graph)と言う.
+\end{defi}
+
+%symmetric
+\begin{defi}
+グラフ$G$の任意の二頂点{\vu}, {\vv}に対し、{\vu}を{\vv}へ写す$G$の自己同型写像があるとき,$G$を頂点対称(vertex transitive, vertex symmetric)という.$G$の任意の二辺$e_1$, $e_2$に対し, $e_1$を$e_2$へ写す$G$への自己同型写像があるとき,$G$を辺対称(edge transitive, edge symmetric)という.
+\end{defi}
+
+%path
+\begin{defi}
+無向グラフ$G(V,E)$の$k$個の頂点の系列{\node v1}, {\node v2}, {\dots}, {\node vk}が $1\leq i \leq k - 1$となる$i$に対して({\node vi}, {\node v{i+1}}) $\in E$を満たすとき, この系列を$G$の{\node v1}から{\node vk}への長さ $k - 1$の経路(path)という. 有向グラフにおいては,有向経路(directed path)という. 
+\end{defi}
+
+%cycle
+\begin{defi}
+先頭の頂点と最後の頂点が同じ経路を閉路(cycle)という.
+\end{defi}
+
+%self loop
+\begin{defi}
+両端の頂点が同じ辺を自己閉路(self loop)という.
+\end{defi}
+
+%underlying graph
+\begin{defi}
+有向グラフ$G$において, 各辺の向きを無くして得られるグラフを$G$の基礎グラフ(underlying graph)という.
+\end{defi}
+
+%connected
+\begin{defi}
+任意の二頂点間に有向経路が存在する有向グラフを強連結(strongly connected)という. 任意の二頂点間に経路が存在する無向グラフを連結(connected)という. 
+有向グラフは, その基礎グラフが連結であるとき, 連結という. 強連結でも連結でもないグラフを非連結(unconnected)という.
+\end{defi}
+
+%tree
+\begin{defi}
+閉路を含まない連結なグラフを木(tree)という.
+\end{defi}
+
+%multiple edge
+\begin{defi}
+無向グラフにおいて, 隣接するある二頂点間に複数の辺が存在するとき, これらの辺を多重辺(multiple edge)という. 有向グラフにおいて, 隣接するある二頂点{\vu , \vv}間に, 
+{\vu}から{\vv}への複数の辺が存在する場合, これらの辺を多重辺という.
+\end{defi}
+
+%simple graph
+\begin{defi}
+自己閉路と多重辺を持たないグラフを単純グラフ(simple graph)という.
+\end{defi}
+
+%shortest path
+\begin{defi}
+グラフ$G$の二頂点{\vu , \vv} 間の経路のうち, 長さが最も短いものを$G$における{\vu , \vv}間の最短経路(shortest path)という.
+\end{defi}
+
+%distance
+\begin{defi}
+二頂点{\vu , \vv}間の最短経路の長さを{\vu , \vv}間の距離(distance)という. {\vu , \vv}間に経路が存在しない場合は, {\vu , \vv}間の距離を$\infty$とする.
+\end{defi}
+
+%diameter
+\begin{defi}
+連結グラフ$G$の任意の二頂点間の距離のうち, 最大のものを$G$の直径(diameter)という. 以降グラフ$G$の直径を$D(G)$で表す.
+\end{defi}
+
+%subgraph
+\begin{defi}
+グラフ$G(V,E)$に対し, 次の条件を全て満たすグラフ$G'(V', E')$を$G$の部分グラフ(subgraph)という.
+\begin{itemize}
+\item $V' \subseteq V$
+\item $E' \subseteq E$
+\end{itemize}
+\end{defi}
+
+
+%subtree
+\begin{defi}
+部分グラフのうち, 木であるものを部分木(subtree)という.
+\end{defi}
+
+%spanning tree
+\begin{defi}
+グラフ$G$の部分木のうち, その頂点が$G$のすべての頂点からなるものを$G$の全域木(spanning tree)という.
+\end{defi}
+
+%connectivity
+\begin{defi}
+連結なグラフ$G$に対して, 以下の二つの条件をともに満たす最小の$k$を$G$の連結度(connectivity)という.
+\begin{itemize}
+\item $G$の任意の$k - 1$個の頂点を取り除いたグラフは連結である.
+\item $G$のある$k$個の頂点を取り除いたグラフが非連結に, あるいはたったひとつの頂点からなるグラフになる.
+\end{itemize}
+\end{defi}
+
+%k-connected
+\begin{defi}
+連結度が$k$であるグラフを$k$-連結($k$-connected)という.
+\end{defi}
+
+
+%disjoint path
+\begin{defi}
+複数の経路が頂点を共有しないとき, これらの経路を互いに素な経路(disjoint path)という.
+\end{defi}
+
+%internally-disjoint paths /  node-to-node disjoint paths
+\begin{defi}
+二頂点{\vu , \vv}を結ぶ複数の経路が{\vu , \vv}を除いて頂点を共有しないとき, これらの経路を内素な経路(internally-disjoint paths)もしくは
+頂点間素な経路(node-to-node disjoint paths)という.
+\end{defi}
+
+%node-to-set disjoint paths
+\begin{defi}
+頂点{\vu}と{\vu}を含まない頂点集合{$V$}を結ぶ複数の経路が{\vu}を端点とした場合を除いて頂点を共有しないとき,これらの経路を頂点と頂点集合間素な経路(node-to-set disjoint paths)という.
+\end{defi}
+
+%set-to-set disjoint paths
+\begin{defi}
+頂点{\node v1 ,\dots , \node vn}を要素として持つ集合$V$と$V$の頂点を含まない
+頂点{\node u1 ,\dots , \node un}を要素として持つ集合$U$ に対して{\node ui, \node vj ($1\leq i,j \leq n$)}間を結ぶ複数の経路が頂点を共有しないとき,これらの経路を頂点集合間素な経路(set-to-set disjoint paths)という.
+\end{defi}
+
+%Group
+\begin{defi}
+集合$B$に演算$\circ $が定義されていて次の性質を全て満たす時, $\langle B,\circ\rangle$を群(group)という.
+\begin{itemize}
+\item $B$の任意の元$x,y,z$に対して,\[ (x\circ y)\circ z = x\circ(y\circ z)\]を満たす.
+\item $B$の任意の元$x$に対して,\[ x\circ e = e\circ x = x \]を満たす$B$の元$e$が存在する.この$e$を群$\langle B,\circ\rangle$の単位元(unit element, identity)という.
+\item $B$の任意の元$x,y,z$に対して,\[ x\circ x^{-1} = x^{-1}\circ x = e\]を満たす$B$の元$x^{-1}$が存在する.
+\end{itemize}
+\end{defi}
+
+%generator set
+\begin{defi}
+$B = \langle B,\circ\rangle$を群とし, $B$の元の部分集合を$X$とする.$B$の任意の元を$X$の元と演算$\circ$の組み合わせで表すことができるとき, $X$ を$B$の生成元集合(generator set)という.
+\end{defi}
+
+%directed cayley graph
+\begin{defi}
+$B = \langle B,\circ\rangle$を群,$X$を$B$の生成元集合とする. 有向グラフ$C*(B,X)$は, その頂点集合$V(C*(B,X))$と辺集合$E(C*(B,X))$をそれぞれ
+\begin{equation*} 
+	\begin{split}
+	V(C*(B,X)) &= B \\
+	E(C*(B,X)) &= \{\{b,x\circ b\}| b \in B, x \in X\} 
+	\end{split}
+\end{equation*}
+とするとき, 有向ケイリーグラフと呼ばれる.
+\end{defi}
+
+
+%cayley graph
+\begin{defi}
+$B = \langle B,\circ\rangle$を群,$X$を$B$の生成元集合とする. 
+$X$の任意の要素$x$に対して$x^{-1}\in X$であるとする. 無向グラフ$C(B,X)$は
+その頂点集合$V(C*(B,X))$と辺集合$E(C*(B,X))$をそれぞれ
+\begin{equation*} 
+	\begin{split}
+	V(C*(B,X)) &= B \\
+	E(C*(B,X)) &= \{\{b,x\circ b\}| b \in B, x \in X\} 
+	\end{split}
+\end{equation*}
+とするとき, ケイリーグラフと呼ばれる.
+\end{defi}
+
+
+
+
+
+
+\end{document}
+
+\begin{defi}
+
+\end{defi}
+
