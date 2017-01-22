@@ -1,56 +1,33 @@
 \documentclass[11pt,a4j]{jsarticle}
+\usepackage{subfiles}
 \usepackage{url}
 \usepackage{listings,jlisting}
 \usepackage{comment}
-
- \usepackage{amsmath}
- \usepackage[amsmath,thmmarks]{ntheorem}
-
-  \theorembodyfont{\normalfont}
+\usepackage{amsmath}
+\usepackage[amsmath,thmmarks]{ntheorem}
+\theorembodyfont{\normalfont}
 \theoremstyle{plain}
 \theoremseparator{.}
 \theoremprework{\bigskip\hrule\bigskip}
 \theorempostwork{\hrule\bigskip}
- \newtheorem{theo}{定理}[section]
- \newtheorem{defi}[theo]{定義}
- \newtheorem{lemm}[theo]{補題} 
- \renewcommand{\thetheo}{\arabic{theo}} 
-
-
-
-
-
-%\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
-%\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
-%\geometry{landscape}                % Activate for for rotated page geometry
-%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
-%\usepackage{graphicx}
-%\usepackage{amssymb}
-%\usepackage{epstopdf}
+\newtheorem{theo}{定理}[section]
+\newtheorem{defi}[theo]{定義}
+\newtheorem{lemm}[theo]{補題} 
+\renewcommand{\thetheo}{\arabic{theo}} 
 \usepackage[dvipdfmx]{graphicx}
 \graphicspath{{./figures/}}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
-
-
-
-%Hyper Cube - Hn
-%Star Graph - Sn
-%Pancake Graph Pn
-%Burnt Pancake Graph : BPn
-%Half Pancake Graph HPn
-%Rotator Graph : Rn
-%Bi Rotator Graph : BRn
-%Transposition Graph : Tn
-%Substring Reversal Graph : SRn
+\def\vector#1{\mbox{\boldmath $#1$}}
+\def\vu{\mbox{\boldmath $u$}}
+\def\vv{\mbox{\boldmath $v$}}
+\def\node#1#2{\mbox{\boldmath $#1_{#2}$}}
+\def\O#1{\overline#1}
 
 
 
 \title{特別研究計画 }
 \author{鄭　信雨\\学籍番号 11834304}
 %\date{}                                           % Activate to display a given date or no date
-
-\def\vector#1{\mbox{\boldmath $#1$}}
-\def\O#1{\overline#1}
 
 \begin{document}
 
@@ -86,20 +63,26 @@
 解説する。
 
 
-\newpage
 
 %諸定義
-%\input{definitions}
+\newpage
+\subfile{definitions}
+
+%グラフ紹介
+\newpage
+\subfile{graphs}
 
 
 
-%グラフの比較を行う。
+\newpage
+\subfile{MeritOfDisjointPaths}
 %静的ルーティング
 %動的ルーティングに関して述べる。
 
 
 
-\input{graphs}
+
+
 
 
 \section{スターグラフ}
@@ -376,8 +359,6 @@ http://even-eko.hatenablog.com/entry/2013/08/08/195120
 \bibitem{pan-n2n} , Keiichi Kaneko, and Yasuto Suzuki, "An Algorithm for Node-Disjoint Paths in Pancake Graphs," {\it IEICE Trans. Information and Systems}, Vol. E86-D, No. 3, pp. 610-615, Mar. 2003
 \bibitem{pan-n2s} Keiichi Kaneko, and Yasuto Suzuki, "Node-to-Set Disjoint Paths Problem in Pancake Graphs," {\it IEICE Trans. Information and Systems}, Vol. E86-D, No. 9, pp. 1628-1633, Sept. 2003.
 \bibitem{bpn-n2s}Keiichi Kaneko, "An Algorithm for Node-to-Set Disjoint Paths Problem in Burnt Pancake Graphs," {\it IEICE Transactions on Information and Systems}, Vol. E86-D, No. 12, pp. 2588-2594, Dec. 2003
-
-
 \end{thebibliography}
 
 
@@ -385,4 +366,4 @@ http://even-eko.hatenablog.com/entry/2013/08/08/195120
 
 
 
-.\end{document}  
+\end{document}  

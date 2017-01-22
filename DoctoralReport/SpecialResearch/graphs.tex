@@ -1,25 +1,4 @@
-\documentclass[11pt,a4j]{jsarticle}
-\usepackage{url}
-\usepackage{listings,jlisting}
-\usepackage{comment}
-\usepackage{amsmath}
-\usepackage[amsmath,thmmarks]{ntheorem}
-\usepackage[dvipdfmx]{graphicx}
-\theorembodyfont{\normalfont}
-\theoremstyle{plain}
-\theoremseparator{.}
-\theoremprework{\bigskip\hrule\bigskip}
-\theorempostwork{\hrule\bigskip}
-\newtheorem{theo}{定理}[section]
-\newtheorem{defi}[theo]{定義}
-\newtheorem{lemm}[theo]{補題}
-\renewcommand{\thetheo}{\arabic{theo}} 
-\def\vector#1{\mbox{\boldmath $#1$}}
-\def\vu{\mbox{\boldmath $u$}}
-\def\vv{\mbox{\boldmath $v$}}
-\def\node#1#2{\mbox{\boldmath $#1_{#2}$}}
-\def\O#1{\overline#1}
-\graphicspath{{./figures/}}
+\documentclass[specialreport]{subfiles}
 \begin{document}
 
 
@@ -35,6 +14,7 @@
 %Bn : Bubble Sort Graph
 
 \section{様々なケイリーグラフ}
+\label{sec:variousgraphs}
 本章では本レポートで取り扱う様々なケイリーグラフに関して述べる.
 
 %hyper cube
@@ -292,7 +272,7 @@ E = ~& \{(\vu, T_{i,j}(\vu))|\vu \in V,  1 \leq i < j \leq n\}
     \caption{$n$-トランスポジショングラフの性質}
     \begin{tabular}{|c|c|c|c|c|c|c|} \hline
       単純グラフ&再帰性&対称性&頂点数&次数&連結度&直径 \\ \hline 
-      yes&yes&yes&$n!$ & $(n-1)(n-2)/2$&$(n-1)(n-2)/2$& $ n-1 $ \\ \hline
+      yes&yes&yes&$n!$ & $n(n-1)/2$&$n(n-1)/2$& $ n-1 $ \\ \hline
     \end{tabular}
     \label{tab:tn_prop}
   \end{center}
