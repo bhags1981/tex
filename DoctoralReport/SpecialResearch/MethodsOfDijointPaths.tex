@@ -16,5 +16,59 @@ $O(|V||E|)$となりグラフの頂点数と変数の積に等しいため実用
 
 \subsection{グラフ内部のリング構造}
 
+\subsection{素な経路選択問題成果一覧}
+\begin{table}[htb]
+  \begin{center}
+    \caption{素な経路選択問題成果一覧}
+    \begin{tabular}{|c|c|c|c|} \hline
+      グラフ&node-to-node&node-to-set&set-to-set\\ \hline 
+      $Q_n$		&$\mathcal{O}(n^2) \cite{hq-n2n}$		&$\mathcal{O}(k^n)*1 \cite{hq-n2s}$		&$\mathcal{O}(n^2) 3$  \cite{hq-s2s}\\ \hline
+      $S_n$		&$\mathcal{O}(n^2) \cite{star-n2s-first}$	&$\mathcal{O}(n^2) \cite{star-n2s} $		&$\mathcal{O}(n^2) \cite{star-n2s-first}$ \\ \hline
+      $P_n$		&$\mathcal{O}(n^3) \cite{pan-n2n} $		&$\mathcal{O}(n^5) \cite{pan-n2s}$		&$\mathcal{O}(n^2)*2 \cite{pan-s2s}$\\ \hline
+      $BP_n$	&$\mathcal{O}(n^3) \cite{bpn-n2n}$		&$\mathcal{O}(n^5) \cite{bpn-n2s}$		&$\mathcal{O}(n^4) \cite{bpn-s2s}$\\ \hline
+      $R_n$		&??\cite{rot-n2n} 					&$\mathcal{O}(n^5) \cite{rot-n2s}$		&Open(2017.01.19) \\ \hline
+      $BR_n$	&$\mathcal{O}(n^3)\cite{birot-n2n}$		&$\mathcal{O}(n^5) \cite{birot-n2s}$		&Open(2017.01.19)\\ \hline
+      $T_n$		&$\mathcal{O}(n^7)\cite{tp-n2n}$		&$\mathcal{O}(n^6) \cite{tp-n2s2}$		&Open(2017.01.19)\\ \hline
+      $S_n$		&$\mathcal{O}(n^7)\cite{ssr-n2n}$		&$\mathcal{O}(n^6) \cite{ssr-n2s}$		&Open(2017.01.19)\\ \hline
+      $B_n$		&$\mathcal{O}(n^4) \cite{bs-n2n}$		&$\mathcal{O}(n^5) \cite{bs-n2s}$		&Open(2017.01.19)\\ \hline
+    \end{tabular}
+    \label{tab:intergrationratio}
+  \end{center}
+\end{table}
+
+
+\begin{thebibliography}{9}
+\bibitem{top500}Top 500, https://www.top500.org/lists/2016/11/, Jan. 2017.
+\bibitem{kcomputer}Mitsuo Yokokawa, et al. "The K computer: Japanese next-generation supercomputer development project, " {\it Low Power Electronics and Design (ISLPED) 2011 International Symposium on. IEEE}, 2011.
+\bibitem{oakforest}Oakforest-PACS スーパーコンピュータシステム, http://www.cc.u-tokyo.ac.jp/system/ofp/, Jan. 2017.
+\bibitem{diskfailures}Disk failures in the real world: What does an MTTF of 1,000,000 hours mean to you?, https://www.usenix.org/legacy/events/fast07/tech/schroeder/schroeder\_html/index.html, Jan.2017.
+\bibitem{hq-n2n} Y. Saad and M. H. Schultz, "Topological properties of hypercubes,"  {\it IEEE Transactions on Computers}, vol. 37, no. 7, pp. 867-872, July 1988. 
+\bibitem{hq-n2s} Bossard, Antoine, and Keiichi Kaneko, “Time Optimal Node-to-Set Disjoint Paths Routing in Hypercubes,” {\it Journal of Information Science and Engineering}, Vol. 30, No. 4, pp. 1087-1093, July 2014.
+\bibitem{hq-s2s} Gu, Qian Ping, Satoshi Okawa, and Shietung Peng. "Efficient Algorithms for Disjoint Paths in Hypercubes and Star Networks," {\it 数理解析研究所講究録} 871 (1994): 105-111. 
+\bibitem{star-routing} Sanguthevar Rajasekaran and David S. L. Wei, "Selection, Routing, and Sorting on the Star Graph,	"  {\it Journal of Parallel and Distributed Computing}, {vol.42},{no.2},pp225-233, 1997.
+\bibitem{star-optimal-prefix-computation}S.G. Akl and K. Qiu, "Data Communication and Computational Geometry on the Star and Pancake Interconnection Networks," {\it Parallel and Distributed Processing, 1991. Proceedings of the Third IEEE Symposium}, pp415-422,1991.
+\bibitem{star-n2n} Qian-Ping Gu and Shietung Peng , "Node-to-node cluster fault tolerant routing in star graphs," {\it Information Processing Letters}, {vol.56},pp29-35, 1995.
+\bibitem{star-n2s-first} M. Dietzfelbinger, S. Madhavapeddy, and I.H. Sudborough, "Three disjoint path paradigms in star networks," {\it Proc. IEEE SPDP}, pp.400-406, 1991.
+\bibitem{star-n2s} Qian-Ping Gu and Shietung Peng , "Node-to-set disjoint paths problem in star graphs,"  {\it Information Processing Letters}, {vol.62},pp201-207, 1996.
+\bibitem{pan-n2n} , Keiichi Kaneko, and Yasuto Suzuki, "An Algorithm for Node-Disjoint Paths in Pancake Graphs," {\it IEICE Trans. Information and Systems}, Vol. E86-D, No. 3, pp. 610-615, Mar. 2003
+\bibitem{pan-n2s} Keiichi Kaneko, and Yasuto Suzuki, "Node-to-Set Disjoint Paths Problem in Pancake Graphs," {\it IEICE Trans. Information and Systems}, Vol. E86-D, No. 9, pp. 1628-1633, Sept. 2003.
+\bibitem{pan-s2s} Peng, Shietung, and Keiichi Kaneko. "Set-to-set disjoint paths routing in pancake graphs," it{Proceedings of the IASTED International Conference on Parallel and Distributed Computing and Systems.} 2006.
+\bibitem{bpn-n2n} Sawada, Naoki, Yasuto Suzuki, and Keiichi Kaneko. "Container problem in burnt pancake graphs." {\it International Symposium on Parallel and Distributed Processing and Applications Springer Berlin Heidelberg}, 2005.
+\bibitem{bpn-n2s} Kaneko, Keiichi. "An algorithm for node-to-set disjoint paths problem in burnt pancake graphs." {\it IEICE TRANSACTIONS on Information and Systems} 86.12 (2003): 2588-2594.
+\bibitem{bpn-s2s} Iwasawa, Nagateru, Antoine Bossard, and Keiichi Kaneko. "Set-to-Set Disjoint Path Routing Algorithm in Burnt Pancake Graphs." Proceedings of the ISCA 26th International Conference on Computers and their Applications. pp. 21-26. 2011.
+\bibitem{rot-n2n} Suzuki, Yasuto, and Keiichi Kaneko: "An Algorithm for Node-Disjoint Paths in Rotator Graphs," {\it Proceedings of the Third International Conference on Parallel and Distributed Computing, Applications and Technologies}, pp. 151-158, Kanazawa, Japan, Sept. 4-6, 2002.
+\bibitem{rot-n2s} Kaneko, Keiichi, and Yasuto Suzuki. "An algorithm for node-to-set disjoint paths problem in rotator graphs." {\it IEICE TRANSACTIONS on Information and Systems} 84.9 (2001): 1155-1163.
+\bibitem{birot-n2n} Kaneko, Keiichi. "Internally-disjoint paths problem in bi-rotator graphs." {\it IEICE TRANSACTIONS on Information and Systems} 88.7 (2005): 1678-1684.
+\bibitem{birot-n2s} Kaneko, Keiichi. "An algorithm for node-to-set disjoint paths problem in bi-rotator graphs." {\it IEICE transactions on information and systems} 89.2 (2006): 647-653.
+\bibitem{tp-n2n}S. Latifi and P. K. Srimani, "Transposition networks as a class of fault-tolerant robust networks,'" {\it IEEE Transactions on Computers},{vol.45, no.2}, pp230-238, 1996.
+\bibitem{tp-n2s}Y. Suzuki, K. Kaneko and M. Nakamori, "Node-disjoint paths in a transposition graph," {\it Proceedings of the International Conference on Parallel and Distributed, Processing Techniques and Applications},pp. 298-304,  2004. 
+\bibitem{tp-n2s2}Satoshi Fujita, "Polynomial time algorithm for constructing vertex-disjoint paths in transposition graphs," {\it Networks}, Volume 56,  pp. 149-157, September 2010. 
+\bibitem{ssr-n2n}Suzuki, Yasuto, Keiichi Kaneko, and Mario Nakamori. "Container problem in substring reversal graphs." {\it Parallel Architectures, Algorithms and Networks, 2004. Proceedings. 7th International Symposium on. IEEE}, 2004.
+\bibitem{ssr-n2s}Jung, Sinyu, and Keiichi Kaneko. "Node-to-set disjoint paths in substring reversal graphs." {\it Computer Science and Software Engineering (JCSSE), 2011 Eighth International Joint Conference on. IEEE}, 2011.
+\bibitem{bs-n2n} Suzuki, Yasuto, and Keiichi Kaneko. "The container problem in bubble-sort graphs." {\it IEICE transactions on information and systems} 91.4 (2008): 1003-1009.
+\bibitem{bs-n2s} 鈴木康斗, and 金子敬一. "バブルソートグラフにおける素な経路選択アルゴリズム." {\it 電子情報通信学会論文誌} D 88.4 (2005): 751-756.
+\bibitem{hs-s2s}Bossard, Antoine. "A Set-to-set Disjoint Paths Routing Algorithm in Hyper-star Graphs." {\it IJ Comput. Appl}. 21.1 (2014): 76-82.
+\end{thebibliography}
+
 
 \end{document}
